@@ -1,0 +1,62 @@
+<form action="/" style="border:1px solid #ccc">
+  <div class="container">
+    <h1>Registration</h1>
+    <p>Please fill in this form to create an account.</p>
+<div [hidden]="submitted"  style="width: 300px;">
+  
+  <form [formGroup]="regForm"  (ngSubmit)="onSubmit()">
+    
+    <div class="form-group">
+      <label for="email">Email
+      <input type="text" class="form-control" id="email"  [(ngModel)]="register.email" formControlName="email" required>
+    </label>
+    </div>
+
+    <div *ngIf="regForm.controls['email'].invalid && (regForm.controls['email'].dirty || regForm.controls['email'].touched)" class="alert alert-danger">
+      <div *ngIf="regForm.controls['email'].errors.required">
+        Email is required.
+      </div>
+      <div *ngIf="regForm.controls['email'].errors.pattern">
+        <!-- [(a-z),(A-Z),(0-9)@gmail.com] -->
+        Email id pattern should be like this [*@gmail.com]
+      </div>
+  </div>
+
+
+    <div class="form-group">
+      <label for="password">Password
+      <input type="password" class="form-control" id="password" required [(ngModel)]="register.password" formControlName="password">
+    </label>
+    </div>
+
+    <div *ngIf="regForm.controls['password'].invalid && (regForm.controls['password'].dirty || regForm.controls['password'].touched)" class="alert alert-danger">
+      <div *ngIf="regForm.controls['password'].errors.required">
+      Password  is required.
+    </div>
+    <div *ngIf="regForm.controls['password'].errors.maxlength">
+      Maximum characters for password is 15
+      </div>
+      <div *ngIf="regForm.controls['password'].errors.minlength">
+      Minimum characters for password is 6
+      </div>
+      
+    </div>
+
+
+
+    <div class="form-group">
+      <label for="repeatpassword">Repeat Password
+      <input type="password" class="form-control" id="repeatpassword" required [(ngModel)]="register.repeatpassword" formControlName="repeatpassword">
+    </label>
+    </div>
+
+<!-- REGISTER BUTTON -->
+<button class="btn btn-primary" [disabled]="!regForm.valid" type="submit">Register</button>
+<!-- <button type="submit" class="btn btn-success">Submit</button> -->
+  </form>
+</div>
+<!-- 
+<div [hidden]="!submitted">
+  <h4>You submitted successfully!</h4>
+  
+</div> -->

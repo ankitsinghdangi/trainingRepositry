@@ -1,0 +1,50 @@
+<form action="/" style="border:1px solid #ccc">
+  <div class="container">
+   
+ <!--    vehiclenumber:string
+brand:string
+vehicleModel:string -->
+<div [hidden]="submitted" style="width: 300px;">
+  <form (ngSubmit)="onAdd()" [formGroup]="vehicleForm">
+    
+    <div class="form-group">
+      <label for="vehiclenumber">Vehicle Number</label>
+      <input type="text" class="form-control" id="vehiclenumber" formControlName="vehiclenumber" required [(ngModel)]="addvpojo.vehiclenumber" name="vehiclenumber" >
+    </div>
+
+    <div *ngIf="vehicleForm.controls['vehiclenumber'].invalid && (vehicleForm.controls['vehiclenumber'].dirty || vehicleForm.controls['vehiclenumber'].touched)" class="alert alert-danger">
+      <div *ngIf="vehicleForm.controls['vehiclenumber'].errors.required">
+        Vehicle number is required.
+      </div>
+      
+    </div>
+
+    <div class="form-group">
+      <label for="brand">Vehicle Brand</label>
+      <input type="text" class="form-control" id="brand" formControlName="brand" required [(ngModel)]="addvpojo.brand" name="brand">
+    </div>
+    <div *ngIf="vehicleForm.controls['brand'].invalid && (vehicleForm.controls['brand'].dirty || vehicleForm.controls['brand'].touched)" class="alert alert-danger">
+      <div *ngIf="vehicleForm.controls['brand'].errors.required">
+        brand name is required.
+      </div>
+      
+    </div>
+
+    <div class="form-group">
+      <label for="vehicleModel">Vehicle Model</label>
+      <input type="text" class="form-control" id="vehicleModel" formControlName="vehicleModel" required [(ngModel)]="addvpojo.vehicleModel" name="vehicleModel">
+    </div>
+    <div *ngIf="vehicleForm.controls['vehicleModel'].invalid && (vehicleForm.controls['vehicleModel'].dirty || vehicleForm.controls['vehicleModel'].touched)" class="alert alert-danger">
+      <div *ngIf="vehicleForm.controls['vehicleModel'].errors.required">
+        vehicleModel name is required.
+      </div>
+      
+    </div>
+
+<button type="submit" class="btn btn-success">Submit</button>
+  </form>
+</div>
+
+<div [hidden]="!submitted">
+  
+</div>
