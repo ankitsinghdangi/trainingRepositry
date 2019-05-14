@@ -1,0 +1,22 @@
+<div class="backgroundcolor">
+  <div class="form-group row">
+    <div class="col-sm-3">
+      <form [hidden]="!submitted" [formGroup]="memForm" novalidate (ngSubmit)="onMemberShip()">
+        
+        <div class="form-group">
+          <label for="membership">Select Your memberShip</label>
+            <select class="form-control" id="membership" formControlName="membership"  [(ngModel)]="member.membership">
+              <option>Gold</option>
+              <option>Silver</option>
+              <option>Premium</option>       
+            </select>
+        </div>
+
+        <button class="btn btn-primary" [disabled]="!memForm.valid" type="submit">Submit</button>
+        
+      </form>
+    </div>
+    <div class="col-sm-7"></div>
+  </div>
+</div>   
+
