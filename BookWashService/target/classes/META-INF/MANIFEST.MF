@@ -1,0 +1,10 @@
+Manifest-Version: 1.0
+Implementation-Title: BookWashService
+Implementation-Version: 0.0.1-SNAPSHOT
+Built-By: andangi
+Implementation-Vendor-Id: com.carwash.demo
+Build-Jdk: 1.8.0_131
+Implementation-URL: https://projects.spring.io/spring-boot/#/spring-bo
+ ot-starter-parent/BookWashService
+Created-By: Maven Integration for Eclipse
+
